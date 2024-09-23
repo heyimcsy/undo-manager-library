@@ -9206,6 +9206,11 @@ undici-types@~6.19.2:
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
   integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
 
+undo-manager@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/undo-manager/-/undo-manager-1.1.1.tgz#a0017cf4e2bea3427997c94d23125ebde20a010b"
+  integrity sha512-2YitjSKYyYVJi4Gs5+uJmcju/tCPTJvSMSQxvXVRNjRzQPMYu0aX7TSevo8OV5dc+GrIzSlYU7fZsvta/T1cCw==
+
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.1.tgz#cb3173fe47ca743e228216e4a3ddc4c84d628cc2"
