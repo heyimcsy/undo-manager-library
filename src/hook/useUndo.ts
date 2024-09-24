@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 const undoManager = new UndoManager();
 
 export function useUndo() {
-    console.log('rerendering use undo');
+    // console.log('rerendering use undo');
     const people = useRef([]);
      const [num, setNum] = useState([]); // State to trigger UI updates
 
