@@ -1,17 +1,24 @@
 import { useUndo } from '../hook/useUndo.ts';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 
 function Main () {
   const {createPerson,num,getPeople} = useUndo()
+
   console.log('checkkkk',num)
   const [addName, setAddName] = useState(''); // Input value state
+  const [tasks, dispatch] = useReducer(
+    tasksReducer,
+    initialTasks
+  );
   const nameChange = (e) => {
     setAddName(e.target.value); // Update input value
   };
 
   const addNameButton = () => {
     if (addName) {
-      createPerson(addName); // Add the input name
+      dispatch({type:'added', payload: addName})
+      console.log('task', tasks)
+      // createPerson(addName); // Add the input name
       setAddName('')
     }
   };
@@ -42,3 +49,27 @@ function Main () {
 }
 
 export default Main
+
+function tasksReducer (tasks, action){
+  switch (action.type) {
+    case 'added': {
+      return [...tasks, action.payload];
+    }
+    // case 'changed': {
+    //   return tasks.map(t => {
+    //     if (t.id === action.task.id) {
+    //       return action.task;
+    //     } else {
+    //       return t;
+    //     }
+    //   });
+    // }
+    case 'deleted': {
+      return tasks.filter(t => t.payload !== action.payload);
+    }
+    default: {
+      throw Error('Unknown action: ' + action.type);
+    }
+  }
+}
+const initialTasks = [];
