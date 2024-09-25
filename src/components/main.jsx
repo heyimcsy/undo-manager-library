@@ -2,7 +2,7 @@ import { useUndo } from '../hook/useUndo.ts';
 import { useEffect, useState } from 'react';
 
 function Main () {
-  const {createPerson, undoManager,num,getPeople} = useUndo()
+  const {createPerson,num,getPeople} = useUndo()
   console.log('checkkkk',num)
   const [addName, setAddName] = useState(''); // Input value state
   const nameChange = (e) => {

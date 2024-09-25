@@ -24,7 +24,6 @@ useEffect(() => {
       >
         <ul>
           {num.map((name, index) => {
-            console.log('naaaame', name)
            return  <li key={index}>{name}</li>
           })}
         </ul>
