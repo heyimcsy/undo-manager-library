@@ -20,10 +20,25 @@ function Main () {
   }, [getPeople()]);
   return(
     <div>
-
+      <div
+        style={{
+          height: '500px',
+          width: '1000px',
+          border: '1px solid green',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <ul>
+          {num.map((name, index) => {
+            return <li key={index}>{name}</li>
+          })}
+        </ul>
+      </div>
       <input value={addName} onChange={nameChange}/>
       <button onClick={addNameButton}>+</button>
     </div>
   )
 }
+
 export default Main

@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import Main from './components/main';
 import Undo from './components/undo';
 import Redo from './components/redo';
