@@ -17,7 +17,7 @@ function Main () {
   const addNameButton = () => {
     if (addName) {
       dispatch({type:'added', payload: addName})
-      console.log('task', tasks)
+      console.log('taskd', tasks)
       // createPerson(addName); // Add the input name
       setAddName('')
     }
