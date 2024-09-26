@@ -1,31 +1,31 @@
 import UndoManager from 'undo-manager';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef } from 'react';
+import {useNum} from "../context/NumContext.tsx";
+
 
 const undoManager = new UndoManager();
 
 export function useUndo() {
-    // console.log('rerendering use undo');
     const people = useRef([]);
-     const [num, setNum] = useState([]); // State to trigger UI updates
+    const { num, setNum } = useNum(); // useNum을 통해 num과 setNum 사용
 
     const addPerson = (name) => {
         people.current.push(name); // Add name to the ref
-        setNum([...people.current]); // Trigger re-render by updating state
+        setNum([...people.current]); // 전역 상태 업데이트
         console.log(getPeople());
-    }
-
+    };
 
     const removePerson = () => {
         people.current.pop(); // Remove the last name from the ref
-        setNum([...people.current]); // Trigger re-render by updating state
+        setNum([...people.current]); // 전역 상태 업데이트
         console.log(getPeople());
-    }
+    };
 
     const getPeople = () => {
         return people.current;
     };
 
-    const createPerson =(name) => {
+    const createPerson = (name) => {
         addPerson(name);
         undoManager.add({
             undo: () => removePerson(),
@@ -33,17 +33,8 @@ export function useUndo() {
         });
     };
 
-    // useEffect(()=> {
-    //     console.log('createeeeeee');
-    //     undoManager.add({
-    //         undo: () => removePerson(),
-    //         redo: () => addPerson('')
-    //     });
-    // }, []);
-
-    useEffect(()=> {
+    useEffect(() => {
         console.log('Current people:', people.current);
-        // console.log('nummmm', num)
     }, [people.current]);
 
     return {
@@ -52,6 +43,5 @@ export function useUndo() {
         createPerson,
         undoManager,
         getPeople,
-        num
     };
 }
