@@ -7,18 +7,19 @@ const undoManager = new UndoManager();
 
 export function useUndo() {
     const people = useRef([]);
-    const { num, setNum } = useNum(); // useNum을 통해 num과 setNum 사용
+    const { num } = useNum(); // useNum을 통해 num과 setNum 사용
 
     const addPerson = (name) => {
         people.current.push(name); // Add name to the ref
-        setNum([...people.current]); // 전역 상태 업데이트
+        // setNum([...people.current]); // 전역 상태 업데이트
+        num.current.push(name)
         console.log(getPeople());
     };
 
     const removePerson = () => {
         people.current.pop(); // Remove the last name from the ref
-        setNum([...people.current]); // 전역 상태 업데이트
-        console.log(getPeople());
+        // setNum([...people.current]); // 전역 상태 업데이트
+        num.current.pop()
     };
 
     const getPeople = () => {

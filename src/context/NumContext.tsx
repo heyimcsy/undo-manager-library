@@ -1,14 +1,14 @@
-import { createContext, useContext, useState } from 'react';
+import {createContext, useContext,  useRef} from 'react';
 
 // Context 생성
 const NumContext = createContext(null);
 
 // Provider 컴포넌트
 export function NumProvider({ children }) {
-    const [num, setNum] = useState([]);
-
+    // const [num, setNum] = useState([]);
+    const num = useRef([])
     return (
-        <NumContext.Provider value={{ num, setNum }}>
+        <NumContext.Provider value={{ num }}>
             {children}
         </NumContext.Provider>
     );

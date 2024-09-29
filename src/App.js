@@ -3,16 +3,14 @@ import { useEffect } from 'react';
 import Main from './components/main';
 import Undo from './components/undo';
 import Redo from './components/redo';
-import { useUndo } from './hook/useUndo.ts';
 import { useNum } from './context/NumContext.tsx';
 
 function App() {
-  const { getPeople } = useUndo();
-  const { num } = useNum(); // useNum으로 num 상태 접근
+  const { num } = useNum();
 
   useEffect(() => {
-    console.log('APPPPPP', getPeople());
-  }, [getPeople()]);
+    console.log('APPPPPP', num.current);
+  }, [num.current.length]);
 
   return (
       <div className="App">
@@ -26,7 +24,7 @@ function App() {
           }}
         >
           <ul>
-            {num.map((name, index) => ( // num을 사용하여 리스트 렌더링
+            {num.current.map((name, index) => (
               <li key={index}>{name}</li>
             ))}
           </ul>
