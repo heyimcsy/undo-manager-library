@@ -8,9 +8,6 @@ import { useNum } from './context/NumContext.tsx';
 function App() {
   const { num } = useNum();
 
-  useEffect(() => {
-    console.log('APPPPPP', num.current);
-  }, [num.current.length]);
 
   return (
       <div className="App">
