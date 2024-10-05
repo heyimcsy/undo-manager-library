@@ -8,7 +8,6 @@ import { useNum } from './context/NumContext.tsx';
 function App() {
   const { num } = useNum();
 
-
   return (
       <div className="App">
         <div
